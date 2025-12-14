@@ -2,8 +2,8 @@
 {% block title %}Lista de albums{% endblock %}
 {% block content %}
 
-
-<br>
+<a href="{{ url_for('albums.create_album')}}" class="btn btn-success mb=3">Agregar Album</a>
+<br><br>
 <table class = "table table-bordered">
 <thead>
     <th>ID</th>
@@ -23,9 +23,14 @@
     <td>{{album.fecha_lanzamiento}}</td>
     <td>{{album.genero}}</td>
     <td>{{album.descripcion}}</td>
-    
-
-  </tr> 
+  <td class="d-flex gap-2">
+    <a href="{{ url_for('albums.update_album', id=album.id) }}" class="btn btn-warning btn-sm">
+        Actualizar
+    </a>
+    <a href="{{ url_for('albums.delete_album', id=album.id) }}" class="btn btn-danger btn-sm">
+        Eliminar
+    </a>
+</td>
   {% endfor %}
 
 </tbody>
