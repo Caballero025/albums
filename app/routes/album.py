@@ -44,3 +44,12 @@ def update_album(id):
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('update_album.html',album = album)
+
+
+@alb_bp.route('/delete/<string:id>')
+def delete_album(id):
+    album = Albums.query.get(id)
+    if album:
+        db.session.delete(album)
+        db.session.commit()
+    return redirect(url_for('albums.index'))

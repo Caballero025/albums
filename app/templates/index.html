@@ -23,7 +23,9 @@
     <td>{{album.fecha_lanzamiento}}</td>
     <td>{{album.genero}}</td>
     <td>{{album.descripcion}}</td>
-    <td><a href="{{url_for('albums.update_album',id = album.id)}}" class="btn btn-warning">Actualizar</a></td>
+    <td><a href="{{url_for('albums.update_album',id = album.id)}}" class="btn btn-warning">Actualizar</a>
+    <a href="{{url_for('albums.delete_album',id = album.id)}}" class="btn btn-danger">Eliminar</a>
+    </td>
   </tr> 
   {% endfor %}
 
