@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Lista de albums{% endblock %}
+{% block content %}
+
+
+<br>
+<table class = "table table-bordered">
+<thead>
+    <th>ID</th>
+    <th>Titulo</th>
+    <th>Artista</th>
+    <th>Fecha_lanzamiento</th>
+    <th>Genero</th>
+    <th>Descripcion</th>
+    <th>Acciones</th>
+</thead>
+<tbody>
+    {% for album in albums %}
+    <tr>
+    <td>{{album.id}}</td>
+    <td>{{album.titulo}}</td>
+    <td>{{album.artista}}</td>
+    <td>{{album.fecha_lanzamiento}}</td>
+    <td>{{album.genero}}</td>
+    <td>{{album.descripcion}}</td>
+    
+
+  </tr> 
+  {% endfor %}
+
+</tbody>
+
+
+
+
+</table>
+
+{% endblock %}
