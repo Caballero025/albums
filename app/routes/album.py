@@ -30,3 +30,17 @@ def create_album():
          return redirect(url_for('albums.index'))
      #Aqui sigue si es GET
      return render_template('create_album.html')
+
+@alb_bp.route('/update/<string:id>', methods=['GET','POST'])
+def update_album(id):
+    album = Albums.query.get(id)
+
+    if request.method == 'POST':
+        album.titulo = request.form['titulo']
+        album.artista = request.form['artista']
+        album.fecha_lanzamiento = request.form['fecha_lanzamiento']
+        album.genero = request.form['genero']
+        album.descripcion = request.form['descripcion']
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('update_album.html',album = album)
